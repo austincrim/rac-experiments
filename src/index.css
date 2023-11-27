@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.react-aria-DropIndicator[data-drop-target] {
+  outline: 1px solid theme('colors.indigo.700');
+}

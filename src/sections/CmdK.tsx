@@ -80,13 +80,10 @@ export function CmdK() {
       </Button>
       <ModalOverlay
         isOpen={open}
-        className="entering:animate-in entering:fade-in fixed inset-0 z-10 pt-[33dvh] flex justify-center min-h-full p-4 overflow-y-auto text-center bg-black/25 backdrop-blur-sm"
+        className="entering:animate-in entering:fade-in duration-150 fixed inset-0 z-10 pt-[33dvh] flex justify-center min-h-full p-4 overflow-y-auto text-center bg-black/25 backdrop-blur-sm"
       >
         <Modal>
-          <Dialog
-            className="focus:outline-none entering:animate-in entering:fade-in entering:slide-in-from-top-2 fill-mode-forwards"
-            aria-label="command bar"
-          >
+          <Dialog className="focus:outline-none" aria-label="command bar">
             <ComboBox
               aria-label="command bar"
               items={filteredItems}
@@ -97,7 +94,7 @@ export function CmdK() {
                 setOpen(false)
               }}
             >
-              <div className="flex flex-col items-center ">
+              <div className="flex flex-col items-center">
                 <Input
                   ref={inputRef}
                   aria-label="Search for apps, files, anything..."
@@ -118,7 +115,7 @@ export function CmdK() {
 
               <Popover
                 offset={0}
-                className="p-3 border-b-stone-300 border-t-2 w-[66vw] bg-stone-100 text-stone-800 rounded-b-lg"
+                className="entering:animate-in entering:slide-in-from-top-2 duration-75 p-3 border-b-stone-300 border-t-2 w-[66vw] bg-stone-100 text-stone-800 rounded-b-lg"
               >
                 <ListBox className="flex flex-col gap-2">
                   {(i: (typeof items)[number]) => (

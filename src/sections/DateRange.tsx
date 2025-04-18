@@ -17,7 +17,7 @@ export function DateRange() {
       <CalendarGrid>
         {(date) => (
           <CalendarCell
-            className="p-1 m-1 text-center rounded-md selected:bg-indigo-500 selected:text-indigo-50"
+            className="p-2 m-0 text-center transition rounded-md selected:bg-indigo-500 selected:text-indigo-50"
             date={date}
           />
         )}

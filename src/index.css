@@ -2,6 +2,16 @@
 @tailwind utilities;
 @tailwind components;
 
+@property --turn {
+  syntax: "<angle>";
+  initial-value: 1turn;
+  inherits: false;
+}
+
+:root {
+  --turn: 0turn;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -9,5 +19,14 @@ section {
 }
 
 .react-aria-DropIndicator[data-drop-target] {
-  outline: 1px solid theme('colors.indigo.700');
+  outline: 1px solid theme("colors.indigo.700");
+}
+
+@keyframes spin {
+  from {
+    --turn: 0turn;
+  }
+  to {
+    --turn: 1turn;
+  }
 }

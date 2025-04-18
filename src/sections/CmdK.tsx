@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from "react"
 import {
   Button,
   ComboBox,
@@ -9,49 +9,49 @@ import {
   Modal,
   ModalOverlay,
   Popover,
-  Text,
-} from 'react-aria-components'
-import File from '@spectrum-icons/workflow/FileCode'
-import Folder from '@spectrum-icons/workflow/Folder'
-import Email from '@spectrum-icons/workflow/Email'
-import Delete from '@spectrum-icons/workflow/Delete'
-import Switch from '@spectrum-icons/workflow/Switch'
-import User from '@spectrum-icons/workflow/UserAdd'
-import Close from '@spectrum-icons/workflow/Close'
-import { useFilter } from 'react-aria'
+  Text
+} from "react-aria-components"
+import File from "@spectrum-icons/workflow/FileCode"
+import Folder from "@spectrum-icons/workflow/Folder"
+import Email from "@spectrum-icons/workflow/Email"
+import Delete from "@spectrum-icons/workflow/Delete"
+import Switch from "@spectrum-icons/workflow/Switch"
+import User from "@spectrum-icons/workflow/UserAdd"
+import Close from "@spectrum-icons/workflow/Close"
+import { useFilter } from "react-aria"
 
 const items = [
-  { id: 1, name: 'Open file...', Icon: File },
-  { id: 2, name: 'Create folder...', Icon: Folder },
-  { id: 3, name: 'Open email...', Icon: Email },
-  { id: 4, name: 'Empty trash', Icon: Delete },
-  { id: 5, name: 'Switch workspace...', Icon: Switch },
-  { id: 6, name: 'Add teammate...', Icon: User },
-  { id: 7, name: 'Quit application', Icon: Close },
+  { id: 1, name: "Open file...", Icon: File },
+  { id: 2, name: "Create folder...", Icon: Folder },
+  { id: 3, name: "Open email...", Icon: Email },
+  { id: 4, name: "Empty trash", Icon: Delete },
+  { id: 5, name: "Switch workspace...", Icon: Switch },
+  { id: 6, name: "Add teammate...", Icon: User },
+  { id: 7, name: "Quit application", Icon: Close }
 ]
 
 export function CmdK() {
   const [open, setOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const [filterValue, setFilterValue] = useState('')
-  const { contains } = useFilter({ sensitivity: 'base' })
+  const [filterValue, setFilterValue] = useState("")
+  const { contains } = useFilter({ sensitivity: "base" })
   const filteredItems = useMemo(
     () => items.filter((i) => contains(i.name, filterValue)),
     [items, filterValue]
   )
 
   function toggle(e: KeyboardEvent) {
-    if (e.key === 'k' && e.metaKey) {
+    if (e.key === "k" && e.metaKey) {
       setOpen((o) => !o)
-    } else if (e.key === 'Escape') {
+    } else if (e.key === "Escape") {
       setOpen(false)
     }
   }
   useEffect(() => {
-    window.addEventListener('keydown', toggle, { capture: true })
+    window.addEventListener("keydown", toggle, { capture: true })
 
     return () => {
-      window.removeEventListener('keydown', toggle, { capture: true })
+      window.removeEventListener("keydown", toggle, { capture: true })
     }
   }, [])
 
@@ -115,7 +115,7 @@ export function CmdK() {
 
               <Popover
                 offset={0}
-                className="entering:animate-in entering:slide-in-from-top-2 duration-75 p-3 border-b-stone-300 border-t-2 w-[66vw] bg-stone-100 text-stone-800 rounded-b-lg"
+                className="p-3 border-b-stone-300 border-t-2 w-[66vw] bg-stone-100 text-stone-800 rounded-b-lg"
               >
                 <ListBox className="flex flex-col gap-2">
                   {(i: (typeof items)[number]) => (
